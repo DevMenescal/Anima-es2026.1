@@ -77,3 +77,224 @@ section{
     justify-content: center;
     align-items: center;
 }
+
+/* Transitions com Hover */
+
+.transition{
+    transition: background-color 2s;
+}
+
+.transition:hover{
+    background-color: #ff0000;
+}
+
+.transitionSize{
+    transition: transform 1s;
+}
+
+.transitionSize:hover{
+    transform: scale(1.5);
+}
+
+.transitionRotate{
+    transition: transform 0.5s;
+}
+
+.transitionRotate:hover{
+    transform: rotateY(180deg); /* VALOR DO ROTATE PODE ROTACIONAR NOS EIXOS X, Y E Z. ACOMPANHADO DOS GRAUS, ENTRE PARÊNTESES (180deg). */
+}
+
+.transitionDelay{
+    transition: width 1s 0.5s, height 1s; /* SINTAXE FICA ==> transition: propriedade tempo delay (TUDO ISSO EM SEGUNDOS OU MILISSEGUNDOS) */
+}
+
+.transitionDelay:hover{
+    width: 200px;
+    height: 200px;
+}
+
+.transitionCheckbox{
+    width: 50px;
+    height: 50px;
+    margin-right: 50px;
+    transition: transform 0.5s;
+}
+
+.transitionCheckbox:checked{
+    transform: rotateY(360deg);
+}
+
+.transitionRadio{
+    width: 50px;
+    height: 50px;
+    margin-right: 50px;
+    transition: transform 0.5s;
+}
+
+.transitionRadio:checked{
+    transform: scale(2);
+}
+
+.transitionText{
+    width: 100%;
+    height: 50px;
+    font-size: 30px;
+    text-align: center;
+    transition: transform 1s;
+}
+
+.transitionText:focus{
+    transform: scale(0.5) scaleX(0.7) rotateZ(180deg);
+}
+
+/* Animações */
+
+/* FADE */
+
+.animationFade{
+    animation: fadeIn 4s linear ; /* Sintaxe ==> animation: nome da animação tempo tipo de acelaração*/
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.animationFadeOut{
+    animation: fadeIn 4s linear;
+    animation-direction: reverse;
+}
+
+.animationFadeInOut{
+    animation: fadeInOut 5s linear infinite;
+}
+
+@keyframes fadeInOut{
+    0%{
+        opacity: 0;
+    }
+    25%{
+        opacity: 0.25;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    75%{
+        opacity: 0.75;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.animationSpinner{
+    animation: rotate 4s linear infinite;
+}
+
+.animationEase{
+    animation: rotate 4s ease infinite;
+}
+
+.animationEaseOut{
+    animation: rotate 4s ease-out infinite;
+}
+
+@keyframes rotate{
+    from{
+        transform: rotateZ(0deg);
+    }
+    to{
+        transform: rotateZ(360deg);
+    }
+}
+
+.positionBox{
+    background-color: #7fffd4;
+    border-radius: 30px;
+    width: 90%;
+    height: 300px;
+    position: relative;
+}
+
+.animationPosition{
+    position: relative;
+    animation: position 4s linear infinite;
+    animation-direction: alternate;
+}
+
+@keyframes position{
+    0%{
+        top: 0px;
+        left: 0px;
+    }
+    25%{
+        top: 0px;
+        left: calc(100% - 100px);
+    }
+    50%{
+        top: calc(100% - 100px);
+        left: calc(100% - 100px);
+    }
+    75%{
+        top: calc(100% - 100px);
+        left: 0px;
+    }
+    100%{
+        top: 0;
+        left: 0;
+    }
+}
+
+.animationContent::after{
+    content: "";
+    animation: promocao 4s infinite;
+}
+
+@keyframes promocao{
+    0%{
+        content: "PROMOÇÃO";
+    }
+    50%{
+        content: "SÓ HOJE!";
+    }
+    100%{
+        content: "FRETE GRÁTIS";
+    }
+}
+
+.container{
+    width: 300px;
+    height: 300px;
+    position: relative;
+}
+
+.clock,
+.hours,
+.minutes{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hours{
+    animation: girarPonteiro 720s linear infinite;
+}
+
+.minutes{
+    animation: girarPonteiro 60s linear infinite;
+}
+
+@keyframes girarPonteiro{
+    from{
+        transform: rotateZ(0deg);
+    }
+    to{
+        transform: rotateZ(360deg);
+    }
+}
